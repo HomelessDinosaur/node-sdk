@@ -5,6 +5,7 @@
   "repository": "https://github.com/nitrictech/node-sdk",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "version": "0.17.0",
   "scripts": {
     "bump": "standard-version",
     "build": "tsc --project tsconfig.build.json",
