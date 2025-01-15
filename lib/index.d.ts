@@ -2963,7 +2963,7 @@ declare class SQLDatabaseResource extends Resource {
 declare const sql: (name: string, options?: SQLDatabaseOptions) => SQLDatabaseResource;
 
 interface ServerType {
-    on: (eventType: string, callback: () => void, options?: any) => void;
+    on: (eventType: 'close', callback: () => void, options?: Record<string, any>) => void;
     close?: () => void;
 }
 type ListenerFunction = ((port: number, callback?: () => void) => ServerType | Promise<ServerType>) | ((port: number) => ServerType | Promise<ServerType>);
