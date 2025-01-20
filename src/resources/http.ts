@@ -87,10 +87,16 @@ const createWorker = async (
     });
 
     httpProxyStream.on('end', () => {
-      if (typeof srv.close === 'function') {
-        srv.close();
-      } else {
-        process.exit(1); // Close the Node.js application with a non-zero exit code
+      try {
+        console.log('closing stream ', typeof srv.close);
+        if (typeof srv.close === 'function') {
+          console.log('blah');
+          srv.close();
+        } else {
+          process.exit(1); // Close the Node.js application with a non-zero exit code
+        }
+      } catch (err) {
+        console.log('error occurred closing stream: ', err);
       }
     });
   }
